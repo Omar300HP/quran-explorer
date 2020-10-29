@@ -1,0 +1,226 @@
+@font-face {
+  font-family: surah-name;
+  src: url("./fonts/QCF2BSML.ttf");
+}
+
+@font-face {
+  font-family: Scheherazade;
+  src: url("./fonts/Scheherazade-Bold.ttf");
+}
+
+@font-face {
+  font-family: Markazi;
+  src: url("./fonts/MarkaziText-VariableFont_wght.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: Markazi, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  direction: rtl;
+}
+
+.App {
+  background-color: #282c34;
+  text-align: center;
+  height: 100vh;
+  // overflow: hidden;
+}
+
+@for $i from 1 through 604 {
+  @font-face {
+    font-family: p#{$i};
+    src: url("./fonts/p#{$i}.ttf");
+  }
+
+  .p#{$i} {
+    font-family: p#{$i};
+    padding-right: 1px;
+    padding-left: 1px;
+    &:hover {
+      color: green;
+    }
+  }
+}
+
+.verse-head {
+  cursor: pointer;
+}
+
+.surah-name-container {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  margin-top: 22px;
+  margin-bottom: 10px;
+
+  &::before {
+    content: "\FC20";
+    font-family: surah-name;
+    position: absolute;
+    right: 0;
+    top: -29px;
+    z-index: -1;
+    width: 100%;
+    font-size: 60px;
+  }
+
+  .surah-name {
+    font-family: surah-name;
+  }
+}
+
+.quran-explorer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 2.5rem;
+
+  .loader-container {
+    width: 85vw;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .loader {
+      color: green;
+    }
+  }
+
+  .quran-page-nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .quran-page-nav-btn {
+      color: green;
+      cursor: pointer;
+      font-size: 5rem;
+    }
+  }
+
+  .quran-pages-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nav-select-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 50%;
+
+      .nav-dropdown {
+        width: 25%;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .create-question-btn {
+      height: 124px;
+    }
+
+    .question-maker-form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+
+      .question-from-to-label {
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .question-select-col {
+        display: flex;
+        flex-direction: column;
+        .question-from-to-select {
+          margin-bottom: 0.5rem;
+          width: 230px;
+        }
+      }
+      .question-input-row {
+        display: flex;
+        flex-direction: row;
+
+        .question-head-n {
+          width: 140px;
+          height: 40px;
+          border-radius: 4px;
+        }
+
+        .question-head {
+          width: 600px;
+          height: 40px;
+          border-radius: 4px;
+        }
+      }
+      .question-btn-row {
+        display: flex;
+        flex-direction: row;
+        height: 3rem;
+        width: 14rem;
+        justify-content: space-between;
+
+        .question-form-btn {
+          width: 6rem;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .quran-pages-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    flex-wrap: wrap;
+
+    .quran-page-container {
+      display: flex;
+      flex-direction: column;
+      width: 38%;
+      min-height: 815px;
+      border: 50px solid transparent;
+      padding: 20px 15px;
+      border-image: url("./quran-border.png") 100 round;
+
+      .quran-page-left {
+        // width: 150%;
+        // padding: 100px;
+        /* padding-bottom: 95px; */
+      }
+
+      .quran-page {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page-number {
+        font-family: Scheherazade;
+        font-weight: bold;
+        margin-top: auto;
+      }
+    }
+  }
+}
